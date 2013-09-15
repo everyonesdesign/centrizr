@@ -6,17 +6,19 @@
 
         var $container = $(this);
 
-        $.container.addClass('centrizr-container');
-        $container.each(function () {
+        $container.addClass('centrizr-container').each(function () {
             var $img = $(this).find('img');
-            var halfWidth = $img.width() / 2;
+            var halfWidth;
+            var halfHeight;
             var parentWidth = $container.width();
+            $img.addClass('wide');
 
             if ($img.width() > parentWidth) {
+                halfWidth = $img.width() / 2;
                 $img.css('margin-left', -halfWidth + 'px');
             } else {
-                $img.addClass('tall');
-                var halfHeight = $(this).height() / 2;
+                $img.removeClass('wide').addClass('tall');
+                halfHeight = $img.height() / 2;
                 $img.css('margin-top', -halfHeight + 'px');
             }
             $img.animate({'opacity': 1}, 200);

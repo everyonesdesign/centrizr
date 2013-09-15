@@ -1,0 +1,36 @@
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.container {
+    width: 960px;
+    margin: auto;
+}
+
+.image-container {
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+.image-container.size-1 {
+    width: 180px;
+    height: 200px;
+    margin: 20px 30px;
+}
+.image-container.size-2 {
+    width: 190px;
+    height: 100px;
+    margin: 20px 25px;
+}
+.image-container.size-3 {
+    width: 200px;
+    height: 150px;
+    margin: 20px 20px;
+}
+

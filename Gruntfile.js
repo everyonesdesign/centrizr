@@ -1,20 +1,27 @@
-/*global module:false*/
 module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+        banner: '/*<%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
             '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+            '* <%= pkg.homepage %>\n' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>;\n' +
+            '* Licensed <%= pkg.license %> \n*/\n\n',
         // Task configuration.
         watch: {
             dist: {
-                files: ['dist/centrizr.js'],
-                tasks: ['uglify']
+                files: ['dist/centrizr.js', 'dist/centrizr.css'],
+                tasks: ['uglify', 'copy']
+            }
+        },
+        copy: {
+            dist: {
+                files: [
+                    {src: ['dist/centrizr.css'], dest: 'demo/css/centrizr.css'},
+                    {src: ['dist/centrizr.min.js'], dest: 'demo/js/centrizr.min.js'}
+                ]
             }
         },
         uglify: {
@@ -32,8 +39,10 @@ module.exports = function (grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task.
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('update', ['uglify', 'copy']);
 
 };
