@@ -3,14 +3,13 @@
 <head>
     <title>Centrizr</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="css/centrizr.css"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 <body>
 <div class="container clearfix">
     <div class="image-container size-1"><img src="img/1.jpg" alt=""/></div>
     <div class="image-container size-1"><img src="img/2.jpg" alt=""/></div>
-    <div class="image-container size-1"><img src="img/3.jpg" alt=""/></div>
+    <div class="image-container size-1"></div>
     <div class="image-container size-1"><img src="img/4.jpg" alt=""/></div>
 </div>
 <div class="container clearfix">
@@ -19,17 +18,16 @@
     <div class="image-container size-2"><img src="img/3.jpg" alt=""/></div>
     <div class="image-container size-2"><img src="img/4.jpg" alt=""/></div>
 </div>
-<div class="container clearfix">
-    <div class="image-container size-3"><img src="img/1.jpg" alt=""/></div>
-    <div class="image-container size-3"><img src="img/2.jpg" alt=""/></div>
-    <div class="image-container size-3"><img src="img/3.jpg" alt=""/></div>
-    <div class="image-container size-3"><img src="img/4.jpg" alt=""/></div>
-</div>
+
+<div class="image-container size-3"><img src="img/1.jpg" alt=""/></div>
+<div class="image-container size-3"><img src="img/2.jpg" alt=""/></div>
+<div class="image-container size-3"><img src="img/3.jpg" alt=""/></div>
+<div class="image-container size-3"><img src="img/4.jpg" alt=""/></div>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/centrizr.min.js"></script>
 <script type="text/javascript">
-    $(window).load(function () {
+    $(window).on("load", function () {
         $('.image-container').centrizr();
     });
 </script>

@@ -12,14 +12,13 @@ module.exports = function (grunt) {
         // Task configuration.
         watch: {
             dist: {
-                files: ['dist/centrizr.js', 'dist/centrizr.css'],
+                files: ['dist/centrizr.js'],
                 tasks: ['uglify', 'copy']
             }
         },
         copy: {
             dist: {
                 files: [
-                    {src: ['dist/centrizr.css'], dest: 'demo/css/centrizr.css'},
                     {src: ['dist/centrizr.min.js'], dest: 'demo/js/centrizr.min.js'}
                 ]
             }
