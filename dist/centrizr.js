@@ -90,6 +90,7 @@
             "height": "",
             "marginLeft": ""
         });
+        $(window).unbind(".cenrizr");
         return this;
     }
 
