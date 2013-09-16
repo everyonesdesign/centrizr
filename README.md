@@ -7,37 +7,47 @@ Container element must have position property set as "relative" or "absolute".
 Usage
 -------------------
 
-HTML: 
-```bash
-<script src="jquery.js"></script>
+Add HTML Structure
 
+Follow this structure to make the plugin work:
+
+```bash
 <div class="image-container">
    <img src="img.png" alt="image">
 </div>
 ```
 
-CSS: 
+Connect jQuery and Centrizr
+
+Download jQuery library and connect it to your page, then connect Centrizr:
+
 ```bash
-.centrizr-container img {
-   position: absolute;
-   min-height: 100% !important;
-   min-width: 0 !important;  
-   max-width: none !important;
-   max-height: 100% !important;  
-   left: 50%;
- }
-.centrizr-container img.tall {
-   min-height: 0 !important;
-   min-width: 100% !important; 
-   max-width: 100% !important;
-   max-height: none !important;  
-   left: 0;
-   top: 50%;
- }
+<script src="jquery.js"></script>
+<script src="centrizr.min.js"></script>
 ```
 
- JS: 
+Inizialize Centrizr
+
+It's recommented to inizialize the plugin on $(window).load, because this way images can load.
+The other way you can choose is usage of excellent David DeSandro's <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> plugin.
+
 ```bash
- $('.image-container').centrizr();
+<script>
+    $(window).on("load", function () {
+        $('.image-container').centrizr();
+    });
+</script>
 ```
+
+Options
+-------------------
+
+```bash
+responsive: boolean (true) //if set to true, plugin recalculates image position on $(window).resize();
+```
+
+
+
+
+
 
