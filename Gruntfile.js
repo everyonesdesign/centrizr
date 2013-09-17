@@ -32,6 +32,24 @@ module.exports = function (grunt) {
                     'dist/centrizr.min.js': ['dist/centrizr.js']
                 }
             }
+        },
+        release: {
+            //use "grunt release" for 0.0.1
+            //    "grunt release:minor" for 0.1.0
+            //    "grunt release:major" for 2.0.0
+            options: {
+                bump: true, 
+                add: true, 
+                commit: true, 
+                tag: true, 
+                push: true, 
+                pushTags: true, 
+                npm: false,
+                npmtag: false, 
+                tagName: 'v.<%= version %>', 
+                commitMessage: 'release <%= version %>', 
+                tagMessage: 'v.<%= version %>' 
+            }
         }
     });
 
@@ -39,6 +57,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-release');
 
     // Default task.
     grunt.registerTask('default', ['watch']);
