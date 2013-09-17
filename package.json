@@ -1,6 +1,6 @@
 {
   "name": "Centrizr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/everyonesdesign/Centrizr.git",
   "description": "jQuery plugin for centering images in their containers.",
   "main": "Gruntfile.js",
