@@ -7,7 +7,7 @@ Container element must have position property set as "relative" or "absolute".
 Usage
 -------------------
 
-###Add HTML Structure
+###1. Add HTML Structure
 
 Follow this structure to make the plugin work:
 
@@ -17,7 +17,7 @@ Follow this structure to make the plugin work:
 </div>
 ```
 
-###Connect jQuery and Centrizr
+###2. Connect jQuery and Centrizr
 
 Download jQuery library and connect it to your page, then connect Centrizr:
 
@@ -26,7 +26,7 @@ Download jQuery library and connect it to your page, then connect Centrizr:
 <script src="centrizr.min.js"></script>
 ```
 
-###Inizialize Centrizr
+###3. Inizialize Centrizr
 
 It's recommented to inizialize the plugin on $(window).load, because this way images can load.
 The other way you can choose is usage of excellent David DeSandro's <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> plugin.
@@ -55,9 +55,3 @@ $(selector).centrizr.destroy() //returns elements to their initial state
 Notes
 -------------------
 If you want to manually recalculate the position of the images, simply use $(selector).centrizr() method. If the plugin is already initialized, the method will reinizialize it.
-
-
-
-
-
-

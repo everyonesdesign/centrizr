@@ -33,21 +33,11 @@
                 console.log("no image to center");
             }
 
-            resetPositionProperty();
             setPositionProperty();
+            resetPositionProperty();
             setImageSizeAndPosition();
 
-            function resetPositionProperty() {
-                $img.css({
-                    "left": "auto",
-                    "height": "auto",
-                    "marginLeft": 0,
-                    "top": "auto",
-                    "width": "auto",
-                    "marginTop": 0
-                });
-            }
-
+            //sets initial required styles for container and image
             function setPositionProperty() {
                 if ($container.css("position") == "static") {
                     $container.css("position", "relative");
@@ -59,6 +49,19 @@
                 });
             }
 
+            //resets size of image for proportion better calculation
+            function resetPositionProperty() {
+                $img.css({
+                    "left": "auto",
+                    "height": "auto",
+                    "marginLeft": 0,
+                    "top": "auto",
+                    "width": "auto",
+                    "marginTop": 0
+                });
+            }
+
+            //positions image according to it's size
             function setImageSizeAndPosition() {
                 if (containerProportion <= imageProportion) { //i.e. image is wider than container
                     $img.css({
@@ -82,16 +85,20 @@
             }
 
         });
+
+        //reinitialize on $(window).resize if responsive is set to true
         if (options.responsive) {
             $(window).on("resize.centrizr", function () {
                 //it's important to set "responsive" to false not to come into loop
-                optionsForUpdate = $.extend(options, {responsive: false});
+                var optionsForUpdate = $.extend(options, {responsive: false});
                 $this.centrizr(optionsForUpdate);
             });
         }
-        return this;
-    }
 
+        return this;
+    };
+
+    //destroy public method
     $.fn.centrizr.destroy = function () {
         $(this).css("position", "").find("img").css({
             "top": "",
@@ -101,7 +108,7 @@
             "height": "",
             "marginLeft": ""
         });
-        $(window).unbind(".cenrizr");
+        $(window).unbind(".centrizr");
         return this;
     }
 
