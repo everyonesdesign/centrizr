@@ -33,25 +33,30 @@
                 console.log("no image to center");
             }
 
-            resetImagesCondition();
+            resetPositionProperty();
             setPositionProperty();
             setImageSizeAndPosition();
 
-            function resetImagesCondition() {
+            function resetPositionProperty() {
                 $img.css({
-                    "top": "",
-                    "width": "",
-                    "marginTop": "",
-                    "left": "",
-                    "height": "",
-                    "marginLeft": ""
+                    "left": "auto",
+                    "height": "auto",
+                    "marginLeft": 0,
+                    "top": "auto",
+                    "width": "auto",
+                    "marginTop": 0
                 });
             }
+
             function setPositionProperty() {
                 if ($container.css("position") == "static") {
                     $container.css("position", "relative");
                 }
-                $img.css('position', 'absolute');
+                $img.css({
+                    "position": "absolute",
+                    "max-width": "none",
+                    "min-width": 0
+                });
             }
 
             function setImageSizeAndPosition() {
@@ -59,23 +64,29 @@
                     $img.css({
                         "left": "50%",
                         "height": "100%",
-                        "marginLeft": -(imgWidth * (containerHeight / imgHeight) / 2) + "px"
+                        "marginLeft": -(imgWidth * (containerHeight / imgHeight) / 2) + "px",
+                        "top": "auto",
+                        "width": "auto",
+                        "marginTop": 0
                     });
                 } else { //i.e. image is narrower than container
                     $img.css({
                         "top": "50%",
                         "width": "100%",
-                        "marginTop": -(imgHeight * (containerWidth / imgWidth) / 2) + "px"
+                        "marginTop": -(imgHeight * (containerWidth / imgWidth) / 2) + "px",
+                        "left": "auto",
+                        "height": "auto",
+                        "marginLeft": 0
                     });
                 }
             }
 
         });
         if (options.responsive) {
-            $(window).on("resize.centrizr", function() {
-               //it's important to set "responsive" to false not to come into loop
-               optionsForUpdate = $.extend(options, {responsive: false});
-               $this.centrizr(optionsForUpdate);
+            $(window).on("resize.centrizr", function () {
+                //it's important to set "responsive" to false not to come into loop
+                optionsForUpdate = $.extend(options, {responsive: false});
+                $this.centrizr(optionsForUpdate);
             });
         }
         return this;
