@@ -77,7 +77,7 @@
                         "top": "50%",
                         "width": "100%",
                         "marginTop": -(imgHeight * (containerWidth / imgWidth) / 2) + "px",
-                        "left": "auto",
+                        "left": 0,
                         "height": "auto",
                         "marginLeft": 0
                     });
