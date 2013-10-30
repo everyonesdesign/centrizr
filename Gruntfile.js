@@ -34,11 +34,13 @@ module.exports = function (grunt) {
             }
         },
         release: {
-            //use "grunt release" for 0.0.1
+            //1. update version in package json
+            //2. execute "my-release" task
+            //    "grunt release" for 0.0.1
             //    "grunt release:minor" for 0.1.0
             //    "grunt release:major" for 1.0.0
             options: {
-                bump: true, 
+                bump: false,
                 add: true, 
                 commit: true, 
                 tag: true, 
@@ -62,5 +64,6 @@ module.exports = function (grunt) {
     // Default task.
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('update', ['uglify', 'copy']);
+    grunt.registerTask('my-release', ['update', 'release']);
 
 };
