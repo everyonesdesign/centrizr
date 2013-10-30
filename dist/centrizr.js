@@ -42,6 +42,7 @@
                 if ($container.css("position") == "static") {
                     $container.css("position", "relative");
                 }
+                $container.css("overflow", "hidden");
                 $img.css({
                     "position": "absolute",
                     "max-width": "none",
@@ -68,7 +69,7 @@
                         "left": "50%",
                         "height": "100%",
                         "marginLeft": -(imgWidth * (containerHeight / imgHeight) / 2) + "px",
-                        "top": "auto",
+                        "top": 0,
                         "width": "auto",
                         "marginTop": 0
                     });
@@ -100,7 +101,10 @@
 
     //destroy public method
     $.fn.centrizr.destroy = function () {
-        $(this).css("position", "").find("img").css({
+        $(this).css({
+            "position": "",
+            "overflow": ""
+        }).find("img").css({
             "top": "",
             "width": "",
             "marginTop": "",

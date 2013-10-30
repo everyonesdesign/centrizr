@@ -36,7 +36,7 @@ module.exports = function (grunt) {
         release: {
             //use "grunt release" for 0.0.1
             //    "grunt release:minor" for 0.1.0
-            //    "grunt release:major" for 2.0.0
+            //    "grunt release:major" for 1.0.0
             options: {
                 bump: true, 
                 add: true, 
