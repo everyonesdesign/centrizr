@@ -11,7 +11,7 @@ Usage
 
 Follow this structure to make the plugin work:
 
-```bash
+```html
 <div class="image-container">
    <img src="img.png" alt="image">
 </div>
@@ -21,7 +21,7 @@ Follow this structure to make the plugin work:
 
 Download jQuery library and connect it to your page, then connect Centrizr:
 
-```bash
+```html
 <script src="jquery.js"></script>
 <script src="centrizr.min.js"></script>
 ```
@@ -31,7 +31,7 @@ Download jQuery library and connect it to your page, then connect Centrizr:
 It's recommented to inizialize the plugin on $(window).load, because this way images can load.
 The other way you can choose is usage of excellent David DeSandro's <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> plugin.
 
-```bash
+```html
 <script>
     $(window).on("load", function () {
         $('.image-container').centrizr();
@@ -42,13 +42,13 @@ The other way you can choose is usage of excellent David DeSandro's <a href="htt
 Options
 -------------------
 
-```bash
+```js
 responsive: boolean (true) //if set to true, plugin will fit new size on $(window).resize();
 ```
 
 Methods
 -------------------
-```bash
+```js
 $(selector).centrizr.destroy() //returns elements to their initial state
 ```
 
